@@ -1,21 +1,17 @@
-우리집 냉장고 v0.6.1
+우리집 냉장고 v0.6.3 · 레시피 캡처 AI 2단계
 
-변경 사항
-- 하단 메뉴의 별도 '등록' 페이지 버튼 제거
-- 식재료 화면의 '식재료 등록' 버튼으로만 등록 화면 진입
-- 식재료 수정 기능은 기존 등록 화면을 내부적으로 재사용
-- 레시피 캡처 AI 작성의 안전한 다음 단계 안내 구체화
-- AI 비밀키는 공개 index.html에 저장하지 않음
-- 식재료 수정 후 안내 문구가 등록으로 표시되던 문제 수정
+포함 파일
+- index.html: GitHub Pages에 덮어쓰기
+- firestore.rules: 기존 공동동기화 규칙
+- firebase.json / .firebaserc: Functions 배포 설정
+- functions/: 비공개 서버 코드
+- AI_STAGE2_SETUP.md: PC에서 배포하는 순서
 
-공동 동기화
-- 기존 Firebase Authentication, Firestore, Household 구조 유지
-- 기존 저장 키 유지
-- firestore.rules 구조 유지
+2단계 기능
+- Firebase Callable Functions 연결 준비
+- 로그인 사용자만 서버 상태 확인
+- 서버 연결 테스트 UI
+- 이미지 데이터 형식 및 크기 검증 준비
+- AI 키를 Cloud Secret Manager에 보관하는 구조
 
-AI 캡처 자동 작성 구현 순서
-1. Firebase Functions 또는 별도 비공개 서버 활성화
-2. 서버 환경변수에 AI API 키 저장
-3. 캡처 이미지 업로드 및 분석 함수 작성
-4. 요리명, 재료, 소스, 만드는 법을 JSON으로 반환
-5. 앱 레시피 입력칸에 자동 반영 후 사용자가 확인하여 저장
+실제 AI 레시피 추출은 3단계에서 활성화합니다.
