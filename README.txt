@@ -1,17 +1,26 @@
-우리집 냉장고 v0.6.3 · 레시피 캡처 AI 2단계
+우리집 냉장고 v0.6.4 · 무료 OCR 레시피 캡처
 
 포함 파일
 - index.html: GitHub Pages에 덮어쓰기
 - firestore.rules: 기존 공동동기화 규칙
-- firebase.json / .firebaserc: Functions 배포 설정
-- functions/: 비공개 서버 코드
-- AI_STAGE2_SETUP.md: PC에서 배포하는 순서
+- firebase.json / .firebaserc: 기존 Firebase 프로젝트 설정
 
-2단계 기능
-- Firebase Callable Functions 연결 준비
-- 로그인 사용자만 서버 상태 확인
-- 서버 연결 테스트 UI
-- 이미지 데이터 형식 및 크기 검증 준비
-- AI 키를 Cloud Secret Manager에 보관하는 구조
+무료 OCR 사용 방법
+1. 레시피 화면에서 캡처 선택
+2. 무료 OCR 실행
+3. 인식된 원문과 자동 분류된 레시피 확인
+4. 잘못된 부분을 직접 수정
+5. 레시피 저장
 
-실제 AI 레시피 추출은 3단계에서 활성화합니다.
+특징
+- Firebase Functions와 Blaze 요금제 불필요
+- OpenAI/API 비밀키 불필요
+- 브라우저에서 Tesseract.js로 한국어+영어 OCR 수행
+- 요리명, 재료, 소스·양념, 만드는 법, 조리 시간 자동 분류
+- 원문을 수정한 뒤 다시 분류 가능
+- 기존 Firebase 공동동기화 및 저장 키 유지
+
+주의
+- 최초 OCR 실행 시 OCR 프로그램과 한국어 언어 자료를 인터넷에서 내려받아 시간이 걸릴 수 있습니다.
+- 글자가 작거나 배경이 복잡한 캡처는 인식률이 낮을 수 있습니다.
+- OCR 결과는 저장 전에 반드시 확인하세요.
